@@ -2,26 +2,32 @@ import Image from "next/image";
 import CountUp from "react-countup";
 import upArrow from "../../../public/Images/Up-arrow.svg";
 import styles from "./bar.module.css";
+import ScrollTrigger from "react-scroll-trigger";
+import { useState } from "react";
 
 const MonthlyRevenueSvg = () => {
+	const [counterOn, setCounterOn] = useState(false);
 	return (
-		<div className="w-60">
+		<ScrollTrigger
+			onEnter={() => setCounterOn(true)}
+			onExit={() => setCounterOn(false)}
+		><div className="w-60">
 			<div className="flex flex-row gap-20 items-center pb-2">
 				<p className="text-[9px] font-semibold">Monthly Revenue</p>
 				<div className="flex flex-row items-center justify-center gap-0">
 					<h6 className="w-[50px] font-bold text-[10px]">
-						$<CountUp end={19766} duration={2} />
+						${counterOn && <CountUp end={19766} duration={2} />}
 					</h6>
 					<div className="flex flex-row  items-center">
 						<Image src={upArrow} className="w-[15px]" alt="up arrow" />
 						<p className="text-green-500 text-[9px] w-[15px]">
-							<CountUp end={2.2} decimals={2} duration={2} />%
+							{counterOn && <CountUp end={2.2} decimals={2} duration={2} />}%
 						</p>
 					</div>
 				</div>
 			</div>
 
-			<div className="w-full">
+			{counterOn && <div className="w-full">
 				<svg
 					viewBox="0 0 205 97"
 					className="w-60"
@@ -278,7 +284,7 @@ const MonthlyRevenueSvg = () => {
 						/>
 					</g>
 				</svg>
-			</div>
+			</div>}
 			<div className="pt-2 flex flex-row gap-7">
 				<div className="flex flex-row items-center gap-2">
 					<div className="bg-brandBlue w-3 h-3 rounded-sm"></div>
@@ -289,7 +295,8 @@ const MonthlyRevenueSvg = () => {
 					<p className="text-[8px] font-semibold">Others</p>
 				</div>
 			</div>
-		</div>
+		</div></ScrollTrigger>
+		
 	);
 };
 

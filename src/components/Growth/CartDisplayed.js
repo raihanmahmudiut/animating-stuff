@@ -13,7 +13,7 @@ const CartDisplayed = () => {
 			onExit={() => setCounterOn(false)}
 		>
 			{counterOn && (
-				<div className="flex flex-row bg-white rounded-xl p-4 gap-4 items-center">
+				<div className="flex flex-row bg-white rounded-xl w-96 p-4 gap-4 items-center">
 					<div className="flex flex-col gap-5">
 						<h6 className="text-brandBlue"> Cart Displayed</h6>
 						<h5 className="font-semibold flex flex-row gap-2 w-[50px]">

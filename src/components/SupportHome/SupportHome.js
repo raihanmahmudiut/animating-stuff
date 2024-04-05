@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import ScrollTrigger from "react-scroll-trigger";
 import supportrectangle from "../../../public/Images/rectangle-support.svg";
-import supportimage from "../../../public/Images/support-home-image.svg";
+
 import skeleton from "../../../public/Images/support-skeleton.svg";
 import styles from "./SupportHome.module.css";
 
@@ -33,8 +33,8 @@ const SupportHome = () => {
 				setShowSecondText(false);
 			}}
 		>
-			<div className="relative">
-				<Image src={supportimage} alt="support image" />
+			<div className="relative h-[600px]">
+			
 
 				<Image
 					src={skeleton}
